@@ -1,0 +1,24 @@
+server:
+  port: 8081
+#debug: true
+
+#logging:
+#  level:
+#    sql: debug
+spring:
+  # Spring Data Source (JPA)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/technical-test
+    username: postgres
+    password: password
+    type: com.zaxxer.hikari.HikariDataSource
+#  jpa:
+#    hibernate:
+#      ddl-auto:  update
+#    show-sql: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: mappings
+

@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot-consumes-1" />
+        <module name="springboot-security-part-1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="springboot" target="17" />
       <module name="springboot-child" target="1.5" />
+      <module name="springboot-template" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -19,6 +21,8 @@
       <module name="springboot" options="-parameters" />
       <module name="springboot-consumes-1" options="-parameters" />
       <module name="springboot-integrate" options="" />
+      <module name="springboot-security-part-1" options="-parameters" />
+      <module name="springboot-template" options="-parameters" />
     </option>
   </component>
 </project>

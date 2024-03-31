@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/springboot-child/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-parent/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-security-part-1/src/main/kotlin" charset="UTF-8" />
   </component>
 </project>

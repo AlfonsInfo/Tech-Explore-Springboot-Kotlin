@@ -2,12 +2,11 @@ package group.learn.springboot.controller
 
 import group.learn.springboot.domain.dto.request.ReqUpsertDto
 import group.learn.springboot.domain.dto.response.ResGetMotorDto
-import group.learn.springboot.domain.dto.response.ResMessageDto
+import group.learn.springboot.domain.dto.response.BaseResponse
 import group.learn.springboot.service.MotorService
 import group.learn.springboot.service.MotorServiceManagerService
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
-import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -25,13 +24,13 @@ class MotorController (
     val motorServiceManagerService: MotorServiceManagerService
 ){
     @PostMapping
-    fun create(@Valid  @RequestBody request : ReqUpsertDto) : ResponseEntity<ResMessageDto<String>>{
+    fun create(@Valid  @RequestBody request : ReqUpsertDto) : ResponseEntity<BaseResponse<String>>{
         val response = motorService.insert(request)
         return ResponseEntity.ok(response)
     }
 
     @PostMapping("/entity-manager")
-    fun createWithEntityManager(@Valid @RequestBody request : ReqUpsertDto) : ResponseEntity<ResMessageDto<String>>{
+    fun createWithEntityManager(@Valid @RequestBody request : ReqUpsertDto) : ResponseEntity<BaseResponse<String>>{
         val response = motorServiceManagerService.saveMotor(request)
         return ResponseEntity.ok(response)
     }
@@ -40,25 +39,25 @@ class MotorController (
     @PutMapping
     fun update(
         @RequestParam uuid  : UUID,
-        @Valid @RequestBody request : ReqUpsertDto) : ResponseEntity<ResMessageDto<String>>{
+        @Valid @RequestBody request : ReqUpsertDto) : ResponseEntity<BaseResponse<String>>{
         val response = motorService.update(uuid,request)
         return ResponseEntity.ok(response)
     }
 
     @GetMapping("/detail")
-    fun detail(@RequestParam uuid  : UUID) : ResponseEntity<ResMessageDto<ResGetMotorDto>>{
+    fun detail(@RequestParam uuid  : UUID) : ResponseEntity<BaseResponse<ResGetMotorDto>>{
         val response = motorService.detail(uuid)
         return ResponseEntity.ok(response)
     }
 
     @GetMapping("/list")
-    fun list() : ResponseEntity<ResMessageDto<List<ResGetMotorDto>>>{
+    fun list() : ResponseEntity<BaseResponse<List<ResGetMotorDto>>>{
         val response = motorService.list()
         return ResponseEntity.ok(response)
     }
 
     @DeleteMapping
-    fun delete(@RequestParam uuid : UUID) : ResponseEntity<ResMessageDto<String>>{
+    fun delete(@RequestParam uuid : UUID) : ResponseEntity<BaseResponse<String>>{
         val response = motorService.delete(uuid)
         return ResponseEntity.ok(response)
     }

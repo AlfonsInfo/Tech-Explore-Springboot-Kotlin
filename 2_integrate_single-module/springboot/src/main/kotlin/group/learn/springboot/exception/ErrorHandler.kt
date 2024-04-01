@@ -1,6 +1,6 @@
 package group.learn.springboot.exception
 
-import group.learn.springboot.domain.dto.response.ResMessageDto
+import group.learn.springboot.domain.dto.response.BaseResponse
 import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.MethodArgumentNotValidException
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 class ErrorHandler {
 
     @ExceptionHandler(DataNotFoundException::class)
-    fun handleDataNotFound(exception : DataNotFoundException) : ResponseEntity<ResMessageDto<*>>{
-        return ResponseEntity.badRequest().body(ResMessageDto<Any?>(
+    fun handleDataNotFound(exception : DataNotFoundException) : ResponseEntity<BaseResponse<*>>{
+        return ResponseEntity.badRequest().body(BaseResponse<Any?>(
             status = 400,
             message = exception.message.toString()
         ))

@@ -2,7 +2,7 @@ package group.learn.springboot.service.impl
 
 import group.learn.springboot.domain.dto.request.ReqUpsertProfileDto
 import group.learn.springboot.domain.dto.response.ResGetProfileDto
-import group.learn.springboot.domain.dto.response.ResMessageDto
+import group.learn.springboot.domain.dto.response.BaseResponse
 import group.learn.springboot.domain.entity.ProfileEntity
 import group.learn.springboot.domain.repository.ProfileRepository
 import group.learn.springboot.exception.DataNotFoundException
@@ -19,7 +19,7 @@ class ProfileServiceImpl (
     val svgProfileApiClient: SvgProfileApiClient
 ) : ProfileService{
 
-    override fun insert(request: ReqUpsertProfileDto): ResMessageDto<String> {
+    override fun insert(request: ReqUpsertProfileDto): BaseResponse<String> {
 
         val avatar = if (request.avatar != null)
             getAvatar(request.avatar!!)
@@ -34,10 +34,10 @@ class ProfileServiceImpl (
             avatar = avatar
         )
         profileRepository.save(data)
-        return  ResMessageDto()
+        return  BaseResponse()
     }
 
-    override fun update(id: UUID, request: ReqUpsertProfileDto): ResMessageDto<String> {
+    override fun update(id: UUID, request: ReqUpsertProfileDto): BaseResponse<String> {
         //* find and validation
         val data  = profileRepository.findById(id)
         if(profileRepository.existsById(id)){
@@ -51,10 +51,10 @@ class ProfileServiceImpl (
         data.get().password = request.password
 
         profileRepository.save(data.get())
-        return ResMessageDto()
+        return BaseResponse()
     }
 
-    override fun detail(id: UUID): ResMessageDto<ResGetProfileDto> {
+    override fun detail(id: UUID): BaseResponse<ResGetProfileDto> {
         // find and validated
         val data = profileRepository.findById(id)
         if(data.isEmpty){
@@ -67,11 +67,12 @@ class ProfileServiceImpl (
             name = data.get().name!!,
             username = data.get().username,
             email = data.get().email,
+            profile = data.get().avatar
         )
-        return ResMessageDto(data = mappedData)
+        return BaseResponse(data = mappedData)
     }
 
-    override fun list(): ResMessageDto<List<ResGetProfileDto>> {
+    override fun list(): BaseResponse<List<ResGetProfileDto>> {
         val allData = profileRepository.findAll()
         val resData= arrayListOf<ResGetProfileDto>()
         for(dt in allData){
@@ -80,18 +81,19 @@ class ProfileServiceImpl (
                 name = dt.name!!,
                 username = dt.username,
                 email = dt.email,
+                profile = dt.avatar
             )
             resData.add(mappedData)
         }
-        return ResMessageDto(data = resData)
+        return BaseResponse(data = resData)
     }
 
-    override fun delete(id: UUID): ResMessageDto<String> {
+    override fun delete(id: UUID): BaseResponse<String> {
         if(!profileRepository.existsById(id)){
             throw DataNotFoundException(DATA_NOT_FOUND)
         }
         profileRepository.deleteById(id)
-        return ResMessageDto()
+        return BaseResponse()
     }
 
     fun getAvatar(avatar : String) : String{

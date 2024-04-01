@@ -1,7 +1,7 @@
 package group.learn.springboot.service.impl
 
 import group.learn.springboot.domain.dto.request.ReqUpsertDto
-import group.learn.springboot.domain.dto.response.ResMessageDto
+import group.learn.springboot.domain.dto.response.BaseResponse
 import group.learn.springboot.domain.entity.MotorEntity
 import group.learn.springboot.service.MotorServiceManagerService
 import jakarta.persistence.EntityManager
@@ -15,9 +15,9 @@ class MotorServiceManagerImpl  : MotorServiceManagerService{
     lateinit var entityManager: EntityManager
 
     @Transactional
-    override fun saveMotor(request: ReqUpsertDto): ResMessageDto<String> {
+    override fun saveMotor(request: ReqUpsertDto): BaseResponse<String> {
         val data = MotorEntity(name = request.name, merk = request.merk)
         entityManager.persist(data)
-        return ResMessageDto()
+        return BaseResponse()
     }
 }

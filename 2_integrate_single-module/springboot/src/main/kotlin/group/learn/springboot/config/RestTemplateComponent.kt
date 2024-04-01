@@ -12,4 +12,7 @@ class RestTemplateComponent {
     fun restTemplate() : RestTemplate{
         return RestTemplateBuilder().build()
     }
+//
+//    @Bean
+//    fun env() : Environment
 }

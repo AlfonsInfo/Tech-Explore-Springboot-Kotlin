@@ -2,7 +2,7 @@ package group.learn.springboot.domain.dto.response
 
 import com.fasterxml.jackson.annotation.JsonInclude
 
-data class ResMessageDto<T>(
+data class BaseResponse<T>(
     val status : Int = 200,
     val message : String = "Success",
 

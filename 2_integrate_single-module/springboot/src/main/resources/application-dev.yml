@@ -37,6 +37,13 @@ management:
       exposure:
         include: "*"
 
+header:
+  request:
+    api-key: 1234
+
+springdoc:
+  api-docs:
+    path: /v1/docs
 
 
 

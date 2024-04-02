@@ -14,13 +14,13 @@ import javax.crypto.spec.SecretKeySpec
 
 
 class JwtGenerator (){
-//    companion object{
-//        private const val SECRET_KEY = "eyJhbGciOiJIUzI1NiJ9.ew0KICAic3ViIjogIjEyMzQ1Njc4OTAiLA0KICAibmFtZSI6ICJBbmlzaCBOYXRoIiwNCiAgImlhdCI6IDE1MTYyMzkwMjINCn0.Ccln-2-B31N0HLMzU7RLXj_hWMk6TaPLbzKPxqZ1Hr0"
-//
-//    }
+    companion object{
+        private const val SECRET_KEY = "eyJhbGciOiJIUzI1NiJ9.ew0KICAic3ViIjogIjEyMzQ1Njc4OTAiLA0KICAibmFtZSI6ICJBbmlzaCBOYXRoIiwNCiAgImlhdCI6IDE1MTYyMzkwMjINCn0.Ccln-2-B31N0HLMzU7RLXj_hWMk6TaPLbzKPxqZ1Hr0"
 
-    @get:Value("\${name.token}")
-    var SECRET_KEY : String? = null
+    }
+
+//    @get:Value("\${name.token}")
+//    var SECRET_KEY : String? = null
 
 
     fun createJWT(req : ReqEncodeJwtDto) :String{

@@ -1,0 +1,43 @@
+server:
+  port: 8095
+logging:
+  level:
+    root: info
+
+spring:
+  datasource:
+    #    driver-class-name : org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/bootcamp_music_project
+    username: postgres
+    password: password
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    hibernate:
+      ddl-auto:  create-drop
+#      ddl-auto:  update
+    show-sql: true
+    generate-ddl: true
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 5000
+            readTimeout: 5000
+            loggerLevel: basic
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+header:
+  request:
+    api-key: 1234
+
+springdoc:
+  api-docs:
+    path: /v1/docs
+
+
+

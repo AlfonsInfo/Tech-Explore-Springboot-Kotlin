@@ -49,6 +49,7 @@ class MusicServiceImpl(
 
         val musicEntity = MusicEntity()
         musicEntity.musicName = request.musicName
+        musicEntity.lyric = request.musicLyric
         musicEntity.type = type
         musicEntity.idGenre = listGenre
         musicEntity.dtAdded= LocalDateTime.now()
@@ -70,26 +71,21 @@ class MusicServiceImpl(
             dataFromQuery.forEach{entity ->
                 val data = ResMusicDto()
                 data.id = entity.id.toString()
-                data.musicName = entity.musicName!!
-                data.type= entity.type?.name!!
+                data.musicName = entity.musicName
+                data.musicLyric = entity.lyric
+                data.type= entity.type?.name
                 dataForResp.add(data)
             }
         }else{
-//            val typeForShow = typeRepository.findById().get()
-//            val dataFromQuery = musicRepository
-//                .findByMusicNameOrIdGenreOrTypeContaining(
-//                request.search.let { "%$it%" },
-//                request.search.let { "%$it%" },
-//                UUID.fromString(typeId as String)
-//                )
             val dataFromQuery = musicRepository.findBySearchAndTypeId(request.search!!, UUID.fromString(typeId as String))
 
 
             dataFromQuery.forEach{entity ->
                 val data = ResMusicDto()
                 data.id = entity.id.toString()
-                data.musicName = entity.musicName!!
-                data.type= entity.type?.name!!
+                data.musicName = entity.musicName
+                data.musicLyric = entity.lyric
+                data.type= entity.type?.name
                 dataForResp.add(data)
             }
 
@@ -103,6 +99,7 @@ class MusicServiceImpl(
             val data = ResMusicDto()
             data.id = dataFromQuery.id.toString()
             data.musicName = dataFromQuery.musicName!!
+            data.musicLyric = dataFromQuery.lyric!!
             data.type= dataFromQuery.type?.name!!
             return BaseResponse(data = data)
     }
@@ -110,7 +107,7 @@ class MusicServiceImpl(
     override fun update(id: String, request: ReqUpsertMusicDto): BaseResponse<String> {
         //* search and validate music
         val musicEntity = musicRepository.findById(UUID.fromString(id)).orElseThrow{
-            ResponseStatusException(HttpStatus.NOT_FOUND, "Music Not FOund")
+            ResponseStatusException(HttpStatus.NOT_FOUND, "Music Not Found")
         }
         //* check type
         val type = typeRepository.findById(UUID.fromString(request.type)).orElseThrow {
@@ -126,6 +123,7 @@ class MusicServiceImpl(
         val listGenre = joiner.toString()
 
         musicEntity.musicName = request.musicName
+        musicEntity.lyric = request.musicLyric
         musicEntity.type = type
         musicEntity.idGenre = listGenre
         musicEntity.dtAdded= LocalDateTime.now()

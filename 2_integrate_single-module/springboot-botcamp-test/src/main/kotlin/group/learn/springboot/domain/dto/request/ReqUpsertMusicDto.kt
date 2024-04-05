@@ -10,6 +10,7 @@ import java.util.*
 data class ReqUpsertMusicDto (
 
     var musicName : String ? = null,
+    var musicLyric : String? = null,
     var type : String? = "T002",
     var idGenre : List<String> ? = null,
 

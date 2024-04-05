@@ -13,9 +13,9 @@ import java.util.UUID
 @Repository
 interface MusicRepository : JpaRepository<MusicEntity, UUID> {
 
-    @Query("SELECT m FROM MusicEntity m WHERE m.musicName LIKE CONCAT('%', :search, '%') AND m.type.id = :typeId")
+    @Query("SELECT m FROM MusicEntity m WHERE m.musicName LIKE CONCAT('%', :search, '%') OR m.lyric LIKE CONCAT('%', :search, '%') AND m.type.id = :typeId")
     fun findBySearchAndTypeId(@Param("search") search: String, @Param("typeId") typeId: UUID): List<MusicEntity>
-    @Query("SELECT m FROM MusicEntity m WHERE m.musicName LIKE CONCAT('%', :search, '%') ")
+    @Query("SELECT m FROM MusicEntity m WHERE m.musicName LIKE CONCAT('%', :search, '%') OR m.lyric LIKE CONCAT('%', :search, '%') ")
     fun findBySearch(@Param("search") search: String): List<MusicEntity>
 
 

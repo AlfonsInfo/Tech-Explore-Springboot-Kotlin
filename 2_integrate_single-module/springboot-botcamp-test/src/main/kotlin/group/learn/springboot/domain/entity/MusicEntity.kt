@@ -16,6 +16,9 @@ data class MusicEntity(
     @Column(name = "name_music")
     var musicName : String ? = null,
 
+    @Column(name = "lyric")
+    var lyric : String ? = null,
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_type")
     var type : UserTypeEntity ? = null,

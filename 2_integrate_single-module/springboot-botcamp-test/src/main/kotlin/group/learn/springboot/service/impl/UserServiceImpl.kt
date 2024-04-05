@@ -71,10 +71,11 @@ class UserServiceImpl  (
             ResponseStatusException(HttpStatus.NOT_FOUND, "User Not Found")
         }
 
-        val userType = userTypeRepository.findByName(id).orElseThrow {
+        val userType = userTypeRepository.findByName(request.userType).orElseThrow {
             ResponseStatusException(HttpStatus.NOT_FOUND, "User Type Not Found")
         }
         dataForUpdate.type = userType
+        userRepository.save(dataForUpdate)
         return BaseResponse()
     }
 }

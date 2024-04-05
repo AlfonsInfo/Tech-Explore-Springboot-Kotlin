@@ -55,10 +55,10 @@ class GenreServiceImpl(
             }
 
         }else{
-            val dataFromQuery = genreRepository.findAll()
+            val dataFromGenre = genreRepository.findAll()
 
             //mapping data
-            dataFromQuery.forEach{entity ->
+            dataFromGenre.forEach{entity ->
                 val data = ResReadGenreDto()
                 data.id = entity.id.toString()
                 data.name = entity.name!!

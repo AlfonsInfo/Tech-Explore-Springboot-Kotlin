@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 data class ResMusicDto (
     var id : String? = null,
     var musicName : String ? = null,
+    var musicLyric : String ? = null,
     var type : String ? = null,
 
     @JsonInclude(JsonInclude.Include.NON_NULL)

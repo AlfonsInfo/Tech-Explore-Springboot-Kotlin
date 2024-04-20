@@ -1,5 +1,0 @@
-# Current Active configuration
-spring:
-  profiles:
-    active:
-      dev

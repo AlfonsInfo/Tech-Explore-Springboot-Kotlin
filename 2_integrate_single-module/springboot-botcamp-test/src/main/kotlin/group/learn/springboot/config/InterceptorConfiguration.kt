@@ -18,14 +18,14 @@ class InterceptorConfiguration (
             "/v1/docs/**"
         )
 
-        registry
-            .addInterceptor(apiKeyInterceptor)
-            .excludePathPatterns(excludedPaths)
-
-        registry
-            .addInterceptor(authKeyInterceptor)
-            .excludePathPatterns(excludedPaths)
-            .excludePathPatterns("/api/v1/auth/login")
-            .excludePathPatterns("/api/v1/user/register")
+//        registry
+////            .addInterceptor(apiKeyInterceptor)
+////            .excludePathPatterns(excludedPaths)
+//
+//        registry
+//            .addInterceptor(authKeyInterceptor)
+//            .excludePathPatterns(excludedPaths)
+//            .excludePathPatterns("/api/v1/auth/login")
+//            .excludePathPatterns("/api/v1/user/register")
     }
 }

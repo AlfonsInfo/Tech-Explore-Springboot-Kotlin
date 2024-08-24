@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springboot (1)" />
         <module name="springboot (2)" />
+        <module name="springboot (3)" />
         <module name="example-repo" />
       </profile>
     </annotationProcessing>
@@ -21,6 +22,7 @@
       <module name="springboot" options="-parameters" />
       <module name="springboot (1)" options="-parameters" />
       <module name="springboot (2)" options="-parameters" />
+      <module name="springboot (3)" options="-parameters" />
     </option>
   </component>
 </project>

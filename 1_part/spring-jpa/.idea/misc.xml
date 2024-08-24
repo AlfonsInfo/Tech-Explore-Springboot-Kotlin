@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/example-auditing/pom.xml" />
         <option value="$PROJECT_DIR$/example-repo/pom.xml" />
         <option value="$PROJECT_DIR$/example-caching/pom.xml" />
+        <option value="$PROJECT_DIR$/example-query-method/pom.xml" />
       </list>
     </option>
   </component>

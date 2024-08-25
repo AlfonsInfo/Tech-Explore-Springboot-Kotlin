@@ -10,19 +10,27 @@
         <module name="springboot (2)" />
         <module name="springboot (3)" />
         <module name="example-repo" />
+        <module name="springboot (4)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="auditing" target="17" />
+      <module name="caching" target="17" />
+      <module name="query-method" target="17" />
       <module name="springboot" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="auditing" options="-parameters" />
+      <module name="caching" options="-parameters" />
       <module name="example-repo" options="-parameters" />
+      <module name="query-method" options="-parameters" />
       <module name="springboot" options="-parameters" />
       <module name="springboot (1)" options="-parameters" />
       <module name="springboot (2)" options="-parameters" />
       <module name="springboot (3)" options="-parameters" />
+      <module name="springboot (4)" options="-parameters" />
     </option>
   </component>
 </project>

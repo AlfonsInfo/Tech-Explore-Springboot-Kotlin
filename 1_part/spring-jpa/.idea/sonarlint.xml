@@ -3,7 +3,10 @@
   <component name="SonarLintProjectSettings">
     <option name="moduleMapping">
       <map>
+        <entry key="auditing" value="springboot (1)" />
+        <entry key="caching" value="springboot (2)" />
         <entry key="example-repo" value="springboot" />
+        <entry key="query-method" value="springboot (3)" />
       </map>
     </option>
   </component>

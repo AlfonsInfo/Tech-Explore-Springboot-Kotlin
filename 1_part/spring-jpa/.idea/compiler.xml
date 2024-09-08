@@ -11,6 +11,8 @@
         <module name="springboot (3)" />
         <module name="example-repo" />
         <module name="springboot (4)" />
+        <module name="springboot (5)" />
+        <module name="springboot (6)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -31,6 +33,8 @@
       <module name="springboot (2)" options="-parameters" />
       <module name="springboot (3)" options="-parameters" />
       <module name="springboot (4)" options="-parameters" />
+      <module name="springboot (5)" options="-parameters" />
+      <module name="springboot (6)" options="-parameters" />
     </option>
   </component>
 </project>

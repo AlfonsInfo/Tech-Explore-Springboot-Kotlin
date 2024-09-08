@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/example-caching/pom.xml" />
         <option value="$PROJECT_DIR$/example-query-method/pom.xml" />
         <option value="$PROJECT_DIR$/example-multiple-datasources/pom.xml" />
+        <option value="$PROJECT_DIR$/example-query-by-example/pom.xml" />
+        <option value="$PROJECT_DIR$/example-envers/pom.xml" />
       </list>
     </option>
   </component>
